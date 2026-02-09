@@ -3,7 +3,7 @@
 ---
 
 title: "Lab 2 Section IV: Resource Cleanup"
-weight: 6
+weight: 10
 chapter: false
 
 ---

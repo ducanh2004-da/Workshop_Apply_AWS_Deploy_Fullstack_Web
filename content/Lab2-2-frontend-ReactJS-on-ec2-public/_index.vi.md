@@ -1,7 +1,7 @@
 ---
 
 title: "Lab 2 Phần II: Frontend ReactJS trên EC2 Public"
-weight: 3
+weight: 8
 chapter: false
 --------------
 

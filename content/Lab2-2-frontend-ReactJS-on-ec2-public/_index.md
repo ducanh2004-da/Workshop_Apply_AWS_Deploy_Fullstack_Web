@@ -1,6 +1,6 @@
 ---
 title: "Lab 2 Part II: ReactJS Frontend on Public EC2"
-weight: 3
+weight: 8
 chapter: false
 --------------
 

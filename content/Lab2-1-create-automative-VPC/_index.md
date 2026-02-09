@@ -1,6 +1,6 @@
 ---
 title: "Lab 2 Section I: VPC Networking & Security"
-weight: 1
+weight: 7
 chapter: false
 ---
 

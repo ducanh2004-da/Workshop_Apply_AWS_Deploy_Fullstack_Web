@@ -1,7 +1,7 @@
 ---
 
 title: "Lab 2 Phần IV: Dọn Dẹp Tài Nguyên"
-weight: 6
+weight: 10
 chapter: false
 --------------
 

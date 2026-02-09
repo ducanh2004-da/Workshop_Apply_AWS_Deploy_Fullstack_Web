@@ -1,7 +1,7 @@
 ---
 
 title: "Lab 2 Phần I: Mạng & Bảo mật VPC"
-weight: 1
+weight: 7
 chapter: false
 --------------
 

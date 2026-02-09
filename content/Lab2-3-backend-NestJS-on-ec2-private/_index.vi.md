@@ -1,7 +1,7 @@
 ---
 
 title: "Lab 2 Phần III: Backend NestJS trên EC2 private"
-weight: 3
+weight: 9
 chapter: false
 --------------
 

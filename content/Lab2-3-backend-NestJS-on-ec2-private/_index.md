@@ -1,6 +1,6 @@
 ---
 title: "Lab 2 Part III: Backend NestJS on Private EC2"
-weight: 3
+weight: 9
 chapter: false
 --------------
 

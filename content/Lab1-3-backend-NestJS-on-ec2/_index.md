@@ -1,6 +1,6 @@
 ---
 
-title: "Lab 1 Section III Case 1: NestJS Backend on EC2 Public"
+title: "Lab 1 Section III: NestJS Backend on EC2 Public"
 weight: 3
 chapter: false
 --------------
