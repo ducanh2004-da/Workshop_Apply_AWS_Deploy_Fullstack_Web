@@ -1,6 +1,6 @@
 ---
 
-title: "Phần IV: Frontend ReactJS trên S3"
+title: "Lab 1 Phần IV: Frontend ReactJS trên S3"
 weight: 4
 chapter: false
 --------------

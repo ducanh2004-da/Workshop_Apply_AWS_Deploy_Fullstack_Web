@@ -1,6 +1,6 @@
 ---
 
-title: "Phần III: Backend NestJS trên EC2"
+title: "Lab 1 Phần III TH1: Backend NestJS trên EC2 Public"
 weight: 3
 chapter: false
 --------------

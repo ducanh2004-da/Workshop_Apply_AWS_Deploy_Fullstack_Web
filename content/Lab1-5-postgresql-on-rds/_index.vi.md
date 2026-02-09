@@ -1,6 +1,6 @@
 ---
 
-title: "Phần V: PostgreSQL trên RDS"
+title: "Lab 1 Phần V: PostgreSQL trên RDS"
 weight: 5
 chapter: false
 --------------

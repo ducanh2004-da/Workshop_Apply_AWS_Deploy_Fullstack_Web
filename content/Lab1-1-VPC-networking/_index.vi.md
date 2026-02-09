@@ -1,6 +1,6 @@
 ---
 
-title: "Phần I: Mạng & Bảo mật VPC"
+title: "Lab 1 Phần I: Mạng & Bảo mật VPC"
 weight: 1
 chapter: false
 --------------

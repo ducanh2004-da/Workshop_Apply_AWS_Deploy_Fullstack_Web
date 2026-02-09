@@ -1,9 +1,11 @@
 
 
 ---
-title: "Section VI: Resource Cleanup"
+
+title: "Lab 2 Section IV: Resource Cleanup"
 weight: 6
 chapter: false
+
 ---
 
 # Cleaning Up Your AWS Resources

@@ -1,57 +1,69 @@
 ---
-title: "Host Web A.I ReactJS & NestJS on AWS"
+title: "AWS Cloud Architecture: Deploying AI-Integrated Full-Stack Applications"
 weight: 1
 chapter: false
 ---
 
 # Introduction
 
-#### Overview  
-Welcome to this hands‑on lab where you will learn to deploy a complete, highly available, and secure full‑stack AI web application on AWS. Over the course of this exercise you will:
-
-1. **Design and build a resilient network**  
-   Create a multi‑AZ Virtual Private Cloud (VPC) with three public subnets and one private subnet. You’ll attach an Internet Gateway, define custom route tables, and lock down traffic with security groups—laying the foundation for both public‑facing and private compute resources.
-
-2. **Containerize and host your AI service**  
-   Launch a t2.medium EC2 instance in a public subnet, install Docker, clone your AI code repository, and spin up your AI model inside containers. You’ll verify external connectivity and integrate the AI endpoint into your backend.
-
-3. **Deploy your Node.js (NestJS) backend**  
-   Provision a t2.micro EC2 instance, install Node.js and PostgreSQL, synchronize your code via `rsync`, configure Prisma for database migrations, and run your backend in production mode. You’ll learn how to securely connect to both your containerized AI service and your database.
-
-4. **Publish a ReactJS frontend to S3**  
-   Build your React app, configure an S3 bucket for static website hosting, apply a bucket policy for public reads, and upload your build artifacts. Your frontend will then serve as the user interface, dynamically fetching data from your NestJS GraphQL API.
-
-5. **Provision a managed PostgreSQL database on RDS**  
-   Create an RDS PostgreSQL instance within your VPC, secure it with a dedicated security group, and connect via pgAdmin. You will execute Prisma migrations to initialize your schema and seed data, demonstrating how to integrate a managed database service into your stack.
-
-6. **Clean up and cost‑control**  
-   Learn best practices for resource teardown: empty and delete your S3 bucket, terminate EC2 instances, and remove your RDS instance to avoid ongoing charges.
-
-#### Why This Matters  
-By completing these steps, you will gain practical experience with core AWS services—VPC, EC2, S3, and RDS—and see firsthand how they integrate to support modern AI‑driven web applications. You’ll become familiar with infrastructure as code concepts, container orchestration with Docker, secure networking, and managed database workflows. This lab not only equips you with deployable artifacts but also instills best practices for security, high availability, and cost management in the cloud.
+#### Executive Summary
+This project demonstrates the deployment of a modern, high-availability full-stack AI web application (ReactJS, NestJS, PostgreSQL, Python AI) on AWS. The objective is to implement and compare two distinct infrastructure patterns: a **Service-Oriented Architecture** leveraging AWS managed services, and a **Secure Network Architecture** focusing on strict VPC segmentation and self-hosted resources.
 
 ---
 
-#### Lab Sections
+#### Lab 01: Service-Oriented Architecture (Managed Services Focus)
+*Architecture: Frontend on S3 (Static Hosting) | Backend & AI on EC2 | Database on RDS*
 
-1. [VPC Networking & Security (Section I)](1-VPC-networking/)  
-   Build your VPC with public and private subnets, Internet Gateway, route tables, and security groups.
+In this approach, the focus is on leveraging AWS managed services to reduce operational overhead and ensure high availability for the database layer.
 
-2. [AI Service on EC2 (Section II)](2-ai-on-ec2/)  
-   Containerize and deploy your AI model in Docker on an EC2 instance.
+1. **VPC Network Design:** Designed a custom VPC with a Multi-AZ architecture. Configured Public and Private subnets with custom Route Tables and Internet Gateways to manage traffic flow effectively.
 
-3. [NestJS Backend on EC2 (Section III)](3-backend-NestJS-on-ec2/)  
-   Launch a Node.js backend, sync code with `rsync`, configure Prisma, and connect to PostgreSQL.
+2. **AI Service Containerization (Docker on EC2):** Provisioned a `t2.medium` EC2 instance to host the Python-based AI model. Containerized the AI service using Docker to ensure environment consistency and seamless integration with the backend.
 
-4. [ReactJS Frontend on S3 (Section IV)](4-frontend-ReactJS-on-s3/)  
-   Build and host your React application as a static website on S3 with public access.
+3. **Backend Deployment (Node.js/NestJS on EC2):** Deployed the NestJS API on a `t2.micro` instance. Configured Prisma ORM for database schema management and established secure connectivity between the Backend EC2 and the RDS instance.
 
-5. [PostgreSQL on RDS (Section V)](5-postgresql-on-rds/)  
-   Provision, secure, and connect to an Amazon RDS PostgreSQL database, then run migrations.
+4. **Frontend Distribution (S3 Static Hosting):** Optimized cost and performance by hosting the ReactJS build artifacts on Amazon S3. Configured Bucket Policies for public read access, serving the UI directly to users while communicating with the backend API.
 
-6. [Resource Cleanup (Section VI)](6-cleanup/)  
-   Tear down services and delete resources to maintain a cost‑efficient AWS environment.
+5. **Managed Database (Amazon RDS):** Provisioned a PostgreSQL instance using Amazon RDS to leverage automated backups and managed maintenance. Secured database access using strictly scoped Security Groups (allowing traffic only from the Backend EC2).
 
 ---
 
-Ready? Let’s get started with Section I and lay the networking groundwork for your AI‑powered web application!  
+#### Lab 02: Secure Network Architecture (IaaS & VPC Segmentation Focus)
+*Architecture: Frontend on Public EC2 (Nginx) | Backend & Database on Private EC2 | NAT Gateway*
+
+This scenario simulates a highly secure enterprise environment where critical resources (Backend APIs and Databases) are isolated from the public internet, requiring advanced networking configuration.
+
+1. **Advanced Networking & Security:** Architected a "VPC and More" setup with strict Public/Private subnet separation. Implemented a **NAT Gateway** to allow private instances to access the internet for updates/installations without exposing them to inbound traffic. Defined granular Inbound/Outbound Security Group rules to prevent unauthorized access.
+
+2. **Frontend & Reverse Proxy (Public Subnet):** Provisioned a `t3.small` EC2 instance in the Public Subnet. Configured **Nginx** as a web server to host the ReactJS application, acting as the entry point for user traffic.
+
+3. **Secure Backend & Self-Hosted DB (Private Subnet):** Provisioned a `t3.small` EC2 instance completely isolated in the Private Subnet. Deployed the NestJS backend and a **self-hosted PostgreSQL database (via Docker)** on this private instance. Demonstrated capability in managing database persistence and networking within a restricted environment.
+
+4. **Cost Management & Resource Teardown:** Implemented lifecycle management policies to terminate Elastic IPs, NAT Gateways, and EC2 instances to prevent budget overruns.
+
+---
+
+#### Technical Skills Demonstrated
+By completing these deployments, the following core cloud competencies were applied:
+
+* **Infrastructure:** VPC Design, Subnetting (Public vs. Private), NAT Gateways, Route Tables.
+* **Compute & Containers:** EC2 Administration (Ubuntu), Docker, Docker Compose.
+* **Database Management:** Amazon RDS (Managed) vs. Self-hosted PostgreSQL (Docker).
+* **Storage & Web Hosting:** Amazon S3 Static Website Hosting.
+* **Security:** Security Groups, Network ACLs, IAM Roles.
+* **Web Server Administration:** Nginx configuration and Reverse Proxy.
+
+---
+
+#### Lab Sections Navigation
+
+1. [VPC Networking & Security (Section I)](1-VPC-networking/)
+2. [AI Service on EC2 (Section II)](2-ai-on-ec2/)
+3. [NestJS Backend on EC2 (Section III)](3-backend-NestJS-on-ec2/)
+4. [ReactJS Frontend on S3 (Section IV)](4-frontend-ReactJS-on-s3/)
+5. [PostgreSQL on RDS (Section V)](5-postgresql-on-rds/)
+6. [Resource Cleanup (Section VI)](6-cleanup/)
+
+---
+
+*Ready to explore the infrastructure? Let’s dive into Section I.*

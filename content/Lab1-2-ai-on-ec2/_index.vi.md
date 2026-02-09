@@ -1,6 +1,6 @@
 ---
 
-title: "Phần II: Dịch vụ AI trên EC2"
+title: "Lab 1 Phần II: Dịch vụ AI trên EC2"
 weight: 2
 chapter: false
 --------------

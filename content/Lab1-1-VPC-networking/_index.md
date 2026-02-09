@@ -1,5 +1,5 @@
 ---
-title: "Section I: VPC Networking & Security"
+title: "Lab 1 Section I: VPC Networking & Security"
 weight: 1
 chapter: false
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Section II: AI Service on EC2"
+title: "Lab 1 Section II: AI Service on EC2"
 weight: 2
 chapter: false
 ---

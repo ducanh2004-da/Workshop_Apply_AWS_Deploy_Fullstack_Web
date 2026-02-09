@@ -1,6 +1,6 @@
 ---
 
-title: "Section IV: ReactJS Frontend on S3"
+title: "Lab 1 Section IV: ReactJS Frontend on S3"
 weight: 4
 chapter: false
 --------------
